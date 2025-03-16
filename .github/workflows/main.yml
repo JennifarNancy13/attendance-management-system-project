@@ -22,6 +22,9 @@ jobs:
 
   zap_scan:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -29,4 +32,4 @@ jobs:
       - name: Run OWASP ZAP Baseline Scan
         uses: zaproxy/action-baseline@v0.7.0
         with:
-          target: 'http://127.0.0.1:5000'  # Change this to your local server URL
+          target: 'https://your-live-flask-app.com'  # Change this to your deployed Flask app URL
